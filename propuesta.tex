@@ -13,8 +13,9 @@
 %\organization{Escuela Superior de Cómputo, IPN}
 %\date{15 de Junio de 2012}
 
-
-
+\newcommand{\nombreProyecto}{Uroboros }
+\newcommand{\empresa}{Umbrella }
+\newcommand{\cliente}{AlgunWey}
 
 \proyecto[SCOR]{Sistema de Control Radiológico V2.0}
 \etapaProy{Inicial}
@@ -54,22 +55,22 @@
 
 \section{Presentación}
 
-	El presente documento contiene la Propuesta de Desarrollo para una nueva versión de {\bf Sistema de Control Radiológico}\footnote{Conocido por los usuarios como SCOR.} denominado SCOR 2.0 por parte de la Coordinación de Desarrollo Tecnológico de la Escuela Superior de Cómputo\footnote{De aquí en adelante se utilizan las siglas ESCOM para referirse a esta escuela.} del Instituto Politécnico Nacional\footnote{De aquí en adelante se utilizan las siglas IPN.}.
+	El presente documento contiene la Propuesta de Desarrollo para el sistema \nombreProyecto      por parte de  \empresa.
 	
-	La propuesta inicia con la presentación del resultado del análisis realizado y la descripción de los problemas detectados y las necesidades externadas por las áreas de la Comisión Nacional de Seguridad Nuclear y Salvaguardias\footnote{De aquí en adelante se utilizan las siglas CNSNS.} involucradas con el sistema.
+	La propuesta inicia con la presentación del resultado del análisis realizado y la descripción de los problemas detectados y las necesidades externadas por \cliente.
 
 \section{Antecedentes} 
 
 \Instrucciones{Resumen del proyecto: nombre, partes involucradas, objetivo, alcance, sede, administración, gobierno, fechas de entrega, status actual}
 
-	La presente propuesta es el resultado de un estudio realizado por analistas de la Coordinación de Desarrollo Tecnológico a petición de la Comisión Nacional de Seguridad Nuclear y Salvaguardias de la Secretaría de Energía.
+	La presente propuesta es el resultado de un estudio realizado por analistas de \empresa a petición de \cliente.
 	
-	El objeto de dicho análisis es la revisión del proceso y sistemas existentes para  otorgar, renovar y revocar licencias para el manejo de Material Redioactivo, así como para llevar a cabo la inspección correspondiente a las instalaciones de los permisionarios de dichas licencias. 
+	El objeto de dicho análisis es la revisión del proceso y sistemas existentes para registrar los periodos vacacionales, dias feriados y permisos de faltas de los empleados, que en conjunto, de ahora en adelante seran referidos como faltas. 
 	
+%TODO: Esta mierda debe de ir? 
+%\section{Confidencialidad
 
-\section{Confidencialidad}
-
-	La presente propuesta se elaboró con base en entrevistas realizadas con la CNSNS y el personal del IPN asignado a este proyecto. La información contenida en este documento es una estimación inicial sujeta a negociación y está dirigida a las personas descritas al final de este documento. Se exige que la información contenida en esta propuesta no sea compartida a terceros, en especial a otros proveedores participantes en el concurso del proyecto en cuestión, sin la autorización previa del IPN mediante el contacto provisto al final del documento.
+%	La presente propuesta se elaboró con base en entrevistas realizadas con la CNSNS y el personal del IPN asignado a este proyecto. La información contenida en este documento es una estimación inicial sujeta a negociación y está dirigida a las personas descritas al final de este documento. Se exige que la información contenida en esta propuesta no sea compartida a terceros, en especial a otros proveedores participantes en el concurso del proyecto en cuestión, sin la autorización previa del IPN mediante el contacto provisto al final del documento.
 
 
 %=========================================================
@@ -80,97 +81,33 @@
 %---------------------------------------------------------
 \section{Situación actual}
 
-	Actualmente la CNSNS es la encargada de ofrecer el trámite para la obtención, supervisión, renovación y revocación de las licencias para el uso, transportación, adquisición y disposición final de material radioactivo.
+	Actualmente \cliente lleva a cabo el control de faltas de manera anacronica utilizando hojas de calculo en excel.
 	
-\subsection{Proceso de Licenciameinto}
+\subsection{Proceso de control de faltas.}
 
-	La figura~\ref{fig:procesoLic} muestra el proceso para el licenciamiento a grandes rasgos. No es posible detallar cada proceso de manera simple debido a que existen diferentes vertientes del proceso en función del tipo y uso que se le dará a la fuente del material radioactivo. Sin mencionar a las diferentes áreas que están involucradas en el proceso. Cada actividad del proceso es un proceso en sí y se puede detallar en gran parte en función del tipo de licencia que se desea adquirir.
+	La figura~\ref{fig:procesoLic} muestra el proceso para llevar el control de faltas.
 
 \begin{figure}[htbp!]
 	\begin{center}
 		\includegraphics[width=\textwidth]{images/procesoLic}
-		\caption{Proceso de licenciamiento.}
+		\caption{Proceso de control de faltas.}
 		\label{fig:procesoLic}
 	\end{center}
 \end{figure}
-
-	Mucha de la información que determina el flujo y las reglas de operación para decidir si se otorga una licencia o no, depende del tipo de fuente radiológica, de los instrumentos que la ocupan y de las prácticas y usos que se le darán. Toda esa información se encuentra en los anexos mencionados en el proceso.
-	
-	Por otro lado el proceso para la renovación es muy parecido al del licenciamiento, solo que se puede simplificar y reducir la cantidad de información requerida ya que en principio es la misma que la de la licencia pasada. El trámite de modificación se parece mucho al de renovación, solo que se agrega la información en relación a los cambios, ampliación o reedición de las prácticas o usos de la fuente radiológica.
-	
-\subsection{Proceso de Inspección}
-
-	La supervisión es un proceso diferente, ya que una vez otorgada una licencia existen momentos establecidos en que se debe o puede hacer una inspección en sitio a fin de corroborar el correcto uso y funcionamiento de las fuentes radioeléctricas.
-	
-	La figura~\ref{fig:procesoInsp} muestra el proceso en general. En esta parte del proceso es importante considerar que la inspección depende mucho de la información que se generó en el licenciamiento, ya que sobre eso va la inspección. El aspecto mas relevante a considerar es que si la fuente está siendo usada de manera irresponsable al grado de que la vida de las personas corre peligro, se puede cancelar la operación y se retiran las fuentes del lugar, quedando a resguardo de la CNSNS. 
-	
-\begin{figure}[htbp!]
-	\begin{center}
-		\includegraphics[width=.8\textwidth]{images/procesoInsp}
-		\caption{Proceso de Inspección.}
-		\label{fig:procesoInsp}
-	\end{center}
-\end{figure}
-
-
-\subsection{Sistema SCOR}
-
-	Actualmente existe un sistema llamado SCOR (Sistema de Control Radiológico) el cual se desarrolló con la finalidad de apoyar el licenciamiento y la inspección en materia de material radiológico.
-	
-	La figura~\ref{fig:scor} muestra la forma en que actualmente se utiliza SCOR. Este sistema se desarrolló como una aplicación de escritorio diseñada para un solo usuario. Al ser actualmente varios los usuarios que requieren utilizar el sistema, esta limitante se supera por medio del acceso al servidor en donde vive la aplicación mediante el acceso con Escritorios Remotos. La seguridad se controla mediante los permisos otorgados por Active Directory\footnote{El sistema de manejo de cuentas de usuarios que utiliza Windows Server. Tanto Active Directory como Widnows y Wosdiws Server, son marcas registradas de Microsoft Corporation.}.
-	
-	En cuanto a su funcionalidad, SCOR no está terminado y varios módulos, los relacionados con la Inspección no han sido terminados del todo, por lo que parte del trabajo se realiza en Excel y Word.
-	
-	La información relacionada con el licenciamiento se carga en este sistema, aunque mucha se registra previamente en otro sistema llamado BD1, del cual hablaremos a continuación.
-	
-	
-\begin{figure}[htbp!]
-	\begin{center}
-		\includegraphics[width=.7\textwidth]{images/scor}
-		\caption{Arquitectura del Sistema de Control Radiológico}
-		\label{fig:scor}
-	\end{center}
-\end{figure}
-
-
-\subsection{Sistema BD1}
-
-	El sistema BD1 se ejecuta de una forma similar a la de SCOR, solo que esta corre bajo Access. Esta plataforma ejecuta tanto a la aplicación como a la BD en un solo archivo, haciendo que los bloqueos a tablas o registros sea imposible, ver figura~\ref{fig:bd1}.
-	
-\begin{figure}[htbp!]
-	\begin{center}
-		\includegraphics[width=.7\textwidth]{images/bd1}
-		\caption{Arquitectura del sistema BD1.}
-		\label{fig:bd1}
-	\end{center}
-\end{figure}
-	
-
-	Este sistema tiene mucha funcionalidad ademas de la relacionada con el licenciamiento, ya que registra todos los trámites, oficios y documentos que llegan a la CNSNS y su paso a través de todas las áreas.
-	
-	Es por esta razón que las diferentes áreas registran mucha información contenida en los documentos que se reciben, incluyendo aquella relacionada con los trámites de licenciamientos. Gran parte de la información contenida en este sistema suele estar incluso mas actualizada que la que aparece en SCOR.
-	
-	Durante el proceso de inspección, el personal encargado encuentra muy útil la información almacenada en este sistema. Sin embargo, en la mayoría de los casos se debe acceder al expediente físico almacenado en archivo para constatar toda la información.
 
 
 %---------------------------------------------------------
 \section{Problemas Detectados}
 	
-	Con base en la revisión de los procesos anteriores y sistemas existentes, se recopilaron las impresiones y comentarios de los actores del proceso. Los problemas detectados se resumen a continuación:
+	Con base en la revisión del proceso anterior y el sistema semiautomatizado existente, se recopilaron las impresiones y comentarios de los actores del proceso. Los problemas detectados se resumen a continuación:
 	
 	\begin{itemize}
-		\item Plataforma inadecuada. El uso de escritorios remotos genera que se ejecuten varios entornos gráficos y escritorios, saturando los servicios, memoria y transito en la red.
-		\item Bajo desempeño. Ya que el servidor se tarda mucho tiempo ye contestar por el alto tráfico generado por los escritorios remotos.
-		\item Información redundante. Mucha de la información requerida se encuentra en dos sistemas.
-		\item Falta de Históricos. El sistema solo contempla el registro, por lo que cualquier actualización modifica la información capturada anteriormente, por lo que no es posible saber desde cuando se actualizó cada dato, ni que información tenia el sistema anteriormente.
-		\item Poca confiabilidad. Se puede borrar información importante en el sistema  y hay otra que debería ser obligatoria y se puede omitir en la captura.
-		\item Funcionalidad incompleta. El sistema SCOR está sin terminar.
-		\item Duplicidad de trabajo. La información se debe capturar dos veces, generando retrasos en la operación.
-		\item Funciones acopladas. Actualmente el sistema BD1 integra funcionalidad tanto de licenciamiento como de la Gestión interna de la CNSNS.
-		\item Riesgo del Expediente físico. Ya que se solicita por diversas áreas para el licenciamiento y la inspección.
-		\item Información desactualizada. Es difícil saber cual de los dos sistemas es el mas actualizado.
-		\item Poca visibilidad del proceso. Es difícil saber el estado actual de cada trámite, ya que hay que meterse a BD1 y verificar banderas y tablas específicas para cada trámite.
-		\item No hay información para la alta gerencia. Los directivos no tienen una vista del sistema que les permita conocer el estatus global de los trámites y tomar decisiones.
+		\item Plataforma inadecuada. Debido a que la informacion esta en archivos de excel, el compartirla implica hacer copias que no necesariamente tendran la informacion actualizada cuando se consulten.
+		\item Bajo desempeño. Ya que no se cuenta con un sistema ni con un equipo dedicado a este proceso.
+		\item Falta de Históricos. El sistema solo contempla el registro, por lo que cualquier consulta historica resulta extremadamente tediosa, al punto de ser imposible para fines practicos.
+		\item Duplicidad de trabajo. Debido a que el trabajo es manual sobre hojas de excel, no esta diseñado para ser colaborativo y existe el riesgo de duplicidad de informacion.
+		\item Poca visibilidad del proceso. Es difícil saber las estadisticas de asistencia de los empleados.
+		\item No hay información para la alta gerencia. Los directivos no tienen una vista del sistema que les permita conocer las asistencias y faltas del personal.
 	\end{itemize}
 
 %---------------------------------------------------------
@@ -179,56 +116,32 @@
 Derivado de la problemática anterior se realizó una estimación de las posibles acudas:
 
 \begin{itemize}	
-	\item Plataforma inadecuada. Aun cuando los escritorios remotos resuelven el problema, no fueron diseñados para utilizarse de esta forma.
-	\item Crecimiento inesperado. El sistema BD1, al contener la información de todos los oficios que se reciben, ha sido enriquecido por diferentes áreas que solicitan agrega información que pueda ser relevante para su área.
-	\item Falta de políticas adecuadas para el manejo de sistemas. El manejo de políticas, permitiría que se identifiquen necesidades específicas y agruparlas para generar estrategias adecuadas para el desarrollo tecnológico de la CNSNS.
-	\item Redundancia del trabajo. La redundancia de responsabilidades genera trabajo repetitivo y duplicidad de información y desactualización.
-	\item Sistema incompleto. La razón por la que se duplique la información o se acceda al expediente físico, s debe a que el SCOR no cuenta con las funciones requeridas.
-	\item El Sistema actual no considera que se deben generar informes y tomar desicione spor parte de las direcciones de la CNSNS.
+	\item Plataforma inadecuada. No es un sistema colaborativo, solo quien registra la informacion puede consultarla de manera facil, cuando dicha informacion es actual.
+	\item Crecimiento inesperado. La forma como se lleva a cabo el proceso conlleva el problema de que al crecer \cliente en cuanto a numero de personal, se hace cada vez mas inviable tener control.
+	\item El Sistema actual no considera que se deben generar informes y tomar desiciones por parte de los diferentes niveles jerarquicos.
 \end{itemize}
 
 %---------------------------------------------------------
 \section{Estimación de Consecuencias}
 
 \begin{itemize}	
-	\item Incumplimiento en los tiempos. La duplicidad de funciones, trabajo e información, hace que se requiera demasiado tiempo para alcanzar los objetivos.
-	\item Falta de supervisión. No se puede determinar con precisión que instituciones deben ser inspeccionadas o si ya lo fueron.
-	\item Falta de conocimiento del estado de las licencias. Aunque se tienen los trámites en papel, llegará el momento en que será imposible obtener los datos en los tiempos requeridos para la operación, dado que el sistema no notifica ni tiene forma de consultar esta información.
-	\item Caos en la información. Con un alto volumen de información, se perderá el control de lo que se contiene en ambos sistemas.
-	\item Desuso de los sistemas actuales. El SCOR empieza a dejar de ser utilizado por el personal.
+	\item Incumplimiento en los tiempos. La dificultad para explotar los archivos de excel implica que el realizar informes o reportes pueda tomar mas tiempo del que se estima.
+	\item Falta de conocimiento de las estadisticas de asistencias. El obtener informacion global de la asistencia de un empleado es muy dificil debido a lo dispersa de la informacion, ademas de que depende en gran medida de los criterios del responsable del registro, con lo que no es facil que reciba ayuda o que alguien tome esa responsabilidad.
+	\item Caos en la información. Con un alto volumen de información, se perderá el control de lo que se contiene hojas de excel.
 \end{itemize}
 
-%---------------------------------------------------------
-\section{Otros aspectos}
-
-	Se considera importante que la inspección se realice con una lista de verificación (checklist) y cuestionario abiertos ya que es muy variada la cantidad de preguntas o aspectos a considerar.
-	
-	Además se tiene planeada la apertura de una Ventanilla de atención que permita a los permisionarios agilizar el trámite y proporcionar su información vía Internet.
-	
-	Otro aspecto a considerar es que los sistemas deben alinearse e interoperar en lo posible con el VUCEM\footnote{Ventanilla Única de Comercio Exterior Mexicano, sistema mediante el cuan se implementa la Ventanilla Digital Mexicana de Comercio Exterior} ya que existe información que debe fluir desde y hacia este sistema.
-	
-	Además, se solicita considerar un mecanismo confiable de autenticación ({\em uso de una firma electrónica}) para que los solicitantes y permisionarios puedan realizar sus trámites de manera electrónica.
 
 %---------------------------------------------------------
 \section{Conclusión del análisis}
-
-	La CNSNS debe establecer de manera consistente los flujos, responsabilidades y alcances de las actividades de cada área involucrada en los procesos de licenciamiento e inspección a fin de que los sistemas involucrados puedan operar adecuadamente.
 	
-	El sistema BD1 es un sistema rebasado en sus atribuciones originales y que incorpora actualmente funciones de diferentes áreas y que de seguir creciendo, terminará por dejar de ser útil para todas las áreas.
+	Una de las principales necesidades actualmente es facilitar el registro de las faltas, de manera que el usuario solo tenga que ingresar los datos y el sistema se encargue la informacion que el usuario requiere en forma de reportes .
 	
-	Una de las principales necesidades actualmente es el aislamiento del sistema de Gestión interna (BD1) y las necesidades de las demás áreas.
-	
-	El sistema SCOR V2.0 debe contemplar la gerencia, toma de decisiones e inspección de los permisionarios así como su uso en las ventanillas mencionadas en la sección anterior.
+	El sistema \nombreProyecto debe contemplar la gerencia y toma de decisiones a traves de facilidades de reporteria que faciliten la consulta de la informacion a los distintos niveles jerarquicos.
 	
 	Con base en lo anterior se considera que el desarrollo pueda llevar un proceso con las siguiente setapas:
 	
 \begin{itemize}
-	\item Análisis y definición de los procesos de licenciamiento e inspección.
-	\item Diseño del mecanismo de interacción con el VUCEM.
-	\item Determinación del mecanismo de autenticación para solicitantes y permisionarios.
-	\item Rediseño e implementación de los sistemas SCOR y de Gestión Interna (Actualmente BD1).
-	\item Apertura de la Ventanilla para Licencias.
-	\item Integración con el VUCEM.
+	\item Análisis y definición del proceso de registro de faltas.
 	\item Migración de información.
 	\item Implementación del nuevo proceso y puesta en marcha de los nuevos sistemas.
 \end{itemize}
@@ -241,16 +154,14 @@ Derivado de la problemática anterior se realizó una estimación de las posible
 %---------------------------------------------------------
 \section{Objetivo General}
 
-	Elaboración de análisis de requerimientos y prototipo conceptual del SCOR Versión 2.0 considerando la Ventanilla para solicitud de licenciamiento y el diseño de la Interoperabilidad con el VUCEM.
-
+	Elaboración de análisis de requerimientos y prototipo conceptual de \nombreProyecto.
 %---------------------------------------------------------
 \section{Objetivos Específicos}
 
 \begin{itemize}
-	\item Análisis de los procesos de licenciamiento e inspección.
+	\item Análisis del proceso de registro y control de faltas.
 	\item Elaboración del prototipo conceptual.
-	\item Análisis técnico del VUCEM.
-	\item Diseño de la estrategia de interoperabilidad con el VUCEM.
+	\item Diseño de las vistas y reportes requeridos por \cliente.
 \end{itemize}
 
 %---------------------------------------------------------
