@@ -3,7 +3,14 @@
 \usepackage{cdtBook}
 \usepackage{requerimientos}
 
-\title{Sistema de Control Radiológico V2.0\\ Etapa I}
+
+%Las constantes a modificar cuando se averiwen o decidan los nombres.
+\newcommand{\nombreProyecto}{Uroboros }
+\newcommand{\empresa}{Umbrella }
+\newcommand{\cliente}{AlgunWey}
+
+
+\title{\nombreProyecto\\ Etapa I}
 \subtitle{\bigskip Propuesta de desarrollo}
 
 %\title{Propuesta Detallada}
@@ -13,11 +20,9 @@
 %\organization{Escuela Superior de Cómputo, IPN}
 %\date{15 de Junio de 2012}
 
-\newcommand{\nombreProyecto}{Uroboros }
-\newcommand{\empresa}{Umbrella }
-\newcommand{\cliente}{AlgunWey}
 
-\proyecto[SCOR]{Sistema de Control Radiológico V2.0}
+
+\proyecto[DEXTER]{\nombreProyecto}
 \etapaProy{Inicial}
 \usoProy{Externo}
 
@@ -190,8 +195,8 @@ Derivado de la problemática anterior se realizó una estimación de las posible
 \begin{enumerate}
 	\item {\bf Toma de Requerimientos.} Mediante mesas de trabajo, entrevistas personales, elaboración de encuestas, inspección de la operación y análisis documental de evidencias, normas y reglamentos aplicables se integra el expediente base para la realización del análisis.
 	\item {\bf Organización y análisis.} Se aplica un proceso de organización y análisis de la problemática que permitirá determinar: el nuevo proceso a seguir y la funcionalidad que deberá presentar el sistema. Esto con base en un enfoque de aprovechamiento de las distintas áreas de oportunidad identificadas y la aplicación de nuevas tecnologías de información en la operación.
-	\item {\bf Verificación y retroalimentación del diseño.} Mediante mesas de trabajo, entrevistas y retroalimentación con la CNSNS se presentan los resultados del análisis a fin de verificar la viabilidad y alcance de su aplicación con base en los recursos y capacidades del personal, tecnología e infraestructura de la CNSNS.
-	\item {\bf Especificación formal del sistema.} Se genera un documento detallado y conciso con todos los detalles que deberá tener el nuevo proceso y el SCOR V2.0 para su aprobación.  
+	\item {\bf Verificación y retroalimentación del diseño.} Mediante mesas de trabajo, entrevistas y retroalimentación con \cliente se presentan los resultados del análisis a fin de verificar la viabilidad y alcance de su aplicación con base en los recursos y capacidades del personal, tecnología e infraestructura de \cliente.
+	\item {\bf Especificación formal del sistema.} Se genera un documento detallado y conciso con todos los detalles que deberá tener el nuevo proceso y el \proyecto para su aprobación.  
 	\item {\bf Aprobación de acuerdos.} Una vez establecidos los acuerdos, se presenta la especificación para su lectura, análisis y aprobación por ambas partes.
 	\item {\bf Presentación del Prototipo Conceptual.} Se construye y presenta una maqueta del sistema ({\em Prototipo Conceptual}) que permita evaluar la interacción del sistema con los usuarios.
 \end{enumerate}
@@ -223,8 +228,8 @@ Derivado de la problemática anterior se realizó una estimación de las posible
 \begin{description}
 	\item [Entregable I.] Expediente de análisis. Carpeta con toda la documentación recabada, informes y evidencias de las entrevistas y mesas de trabajo
 	\item [Entregable II.] Diagnóstico inicial. Contiene el análisis de la problemática, las oportunidades de mejora de procesos y las tecnologías que se pueden aprovechar en la operación.
-	\item [Entregable III.] Especificación Formal. Que contiene la especificación del SCOR V2.0.
-	\item [Entregable IV.] Prototipo Conceptual. Construcción y programación de la navegación y mensajes de las pantallas del SCOR V2.0.
+	\item [Entregable III.] Especificación Formal. Que contiene la especificación de \nombreProyecto.
+	\item [Entregable IV.] Prototipo Conceptual. Construcción y programación de la navegación y mensajes de las pantallas de \nombreProyecto.
 \end{description}
 
 
