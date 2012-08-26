@@ -68,7 +68,7 @@
 
 	La presente propuesta es el resultado de un estudio realizado por analistas de \empresa a petición de \cliente.
 	
-	El objeto de dicho análisis es la revisión del proceso y sistemas existentes para registrar los periodos vacacionales, dias feriados y permisos de faltas de los empleados, que en conjunto, de ahora en adelante seran referidos como faltas. 
+	El objeto de dicho análisis es la revisión del proceso y sistemas existentes para registrar los periodos vacacionales, dias feriados y permisos de faltas de los empleados, (que en conjunto, de ahora en adelante seran referidos como faltas) los datos de nomina y la generacion de listas de asistencia y recibos de nomina . 
 	
 
 
@@ -106,10 +106,8 @@
 	\begin{itemize}
 		\item Plataforma inadecuada. Debido a que la informacion esta en archivos de excel, el compartirla implica hacer copias que no necesariamente tendran la informacion actualizada cuando se consulten.
 		\item Bajo desempeño. Ya que no se cuenta con un sistema ni con un equipo dedicado a este proceso.
-		\item Falta de Históricos. El sistema solo contempla el registro, por lo que cualquier consulta historica resulta extremadamente tediosa, al punto de ser imposible para fines practicos.
 		\item Duplicidad de trabajo. Debido a que el trabajo es manual sobre hojas de excel, no esta diseñado para ser colaborativo y existe el riesgo de duplicidad de informacion.
 		\item Poca visibilidad del proceso. Es difícil saber las estadisticas de asistencia de los empleados.
-		\item No hay información para la alta gerencia. Los directivos no tienen una vista del sistema que les permita conocer las asistencias y faltas del personal.
 	\end{itemize}
 
 %---------------------------------------------------------
@@ -119,8 +117,7 @@ Derivado de la problemática anterior se realizó una estimación de las posible
 
 \begin{itemize}	
 	\item Plataforma inadecuada. No es un sistema colaborativo, solo quien registra la informacion puede consultarla de manera facil, cuando dicha informacion es actual.
-	\item Crecimiento inesperado. La forma como se lleva a cabo el proceso conlleva el problema de que al crecer \cliente en cuanto a numero de personal, se hace cada vez mas inviable tener control.
-	\item El Sistema actual no considera que se deben generar informes y tomar desiciones por parte de los diferentes niveles jerarquicos.
+	\item Crecimiento inesperado. La forma como se lleva a cabo el proceso conlleva el problema de que al crecer \cliente en cuanto a volumen de datos, se hace cada vez mas inviable tener control.
 \end{itemize}
 
 %---------------------------------------------------------
@@ -128,7 +125,6 @@ Derivado de la problemática anterior se realizó una estimación de las posible
 
 \begin{itemize}	
 	\item Incumplimiento en los tiempos. La dificultad para explotar los archivos de excel implica que el realizar informes o reportes pueda tomar mas tiempo del que se estima.
-	\item Falta de conocimiento de las estadisticas de asistencias. El obtener informacion global de la asistencia de un empleado es muy dificil debido a lo dispersa de la informacion, ademas de que depende en gran medida de los criterios del responsable del registro, con lo que no es facil que reciba ayuda o que alguien tome esa responsabilidad.
 	\item Caos en la información. Con un alto volumen de información, se perderá el control de lo que se contiene hojas de excel.
 \end{itemize}
 
@@ -136,14 +132,12 @@ Derivado de la problemática anterior se realizó una estimación de las posible
 %---------------------------------------------------------
 \section{Conclusión del análisis}
 	
-	Una de las principales necesidades actualmente es facilitar el registro de las faltas, de manera que el usuario solo tenga que ingresar los datos y el sistema se encargue la informacion que el usuario requiere en forma de reportes .
-	
-	El sistema \nombreProyecto debe contemplar la gerencia y toma de decisiones a traves de facilidades de reporteria que faciliten la consulta de la informacion a los distintos niveles jerarquicos.
-	
-	Con base en lo anterior se considera que el desarrollo pueda llevar un proceso con las siguiente setapas:
+	Una de las principales necesidades actualmente es facilitar el registro de las faltas, de manera que el usuario solo tenga que ingresar los datos y el sistema se encargue de generar la informacion que el usuario requiere en forma de reportes .
+		
+	Con base en lo anterior se considera que el desarrollo pueda llevar un proceso con las siguientes etapas:
 	
 \begin{itemize}
-	\item Análisis y definición del proceso de registro de faltas.
+	\item Análisis y definición del proceso de registro de faltas y nomina.
 	\item Migración de información.
 	\item Implementación del nuevo proceso y puesta en marcha de los nuevos sistemas.
 \end{itemize}
@@ -207,7 +201,7 @@ Derivado de la problemática anterior se realizó una estimación de las posible
 	\item {\bf Introducción.} Contiene la presentación del documento, contenido, organización, etc.
 	\item {\bf Modelo del negocio.} Presenta las consideraciones propias de la operación y la organización que gobiernan al sistema, entre ellas: Glosario de términos, normatividad aplicable, procesos, roles, modelo estructural del negocio y reglas de operación.
 	\item {\bf Modelo de despliegue.} Especifica las características de Software, Hardware y servicios de comunicación necesarios para que opere el sistema y la arquitectura del sistema.
-	\item {\bf Modelo del Comportamiento.} Describe mediante casos de uso toda la funcionalidad paso a paso del sistema especificando, el propósito de cada funcionalidad del sistema, las operaciones involucradas, los efectos colaterales de cada operación, los prerequicitos, el control de acceso a las operaciones y las responsabilidades, tanto de los usuarios como del sistema, durante la operación.
+	\item {\bf Modelo del Comportamiento.} Describe mediante casos de uso toda la funcionalidad paso a paso del sistema especificando, el propósito de cada funcionalidad del sistema, las operaciones involucradas, los efectos colaterales de cada operación, los prerrequisitos, el control de acceso a las operaciones y las responsabilidades, tanto de los usuarios como del sistema, durante la operación.
 	\item {\bf Modelo de interacción.} Especifica, a manera de manual de usuario todas las interfaces del sistema y la forma en que deben usarse, incluyendo una lista con todos los mensajes, correos, avisos y notificaciones que pueda generar el sistema.
 \end{itemize}
 
